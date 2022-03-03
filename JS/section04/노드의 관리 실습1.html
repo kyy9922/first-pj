@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <ul class="list">
+        <li>ddd</li>
+        <li>ddd</li>
+        <li>ddd</li>        
+    </ul>
+
+    <h1 class="title"></h1>
+    
+
+
+    <script>
+
+        $('.list li').html('한번에 값을 수정');
+
+
+        let p = document.createElement('p');
+        document.querySelector('body').appendChild(p);
+        let pText = document.createTextNode( 'textnode를 이용한 텍스트' );
+        document.querySelector('p').appendChild(pText);
+        
+        let att = document.createAttribute("style");
+        att.value = "color:blue";
+        p.setAttributeNode(att);
+        p.removeAttribute("style");
+
+
+        let p1 = document.querySelector("p");
+        p.textContent = "textContent로 바꾼 내용"
+        p.setAttribute("style","color:blue")
+        p.style.background = "yellow"
+
+
+        let li = document.createElement("li")
+        li.textContent = "확인 1번째줄"
+        let ul = document.querySelector("ul");
+        ul.replaceChild(li, ul.firstElementChild);
+        let a = document.createElement("a");
+        a.textContent = "확인 2번째줄";
+        ul.firstElementChild.nextElementSibling.replaceChild(a,
+        ul.firstElementChild.nextElementSibling.childNodes[0])
+
+        let liSibling = ul.firstElementChild.nextElementSibling
+        liSibling.childNodes[0]
+
+        let h1 = document.querySelector('h1');
+        h1.textContent = 'textContent로 바꾼 내용';
+        h1.setAttribute("class", "classname");
+        h1.style.color = "blue";
+
+        
+        
+    </script>
+</body>
+</html>

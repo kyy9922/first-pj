@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ol>
+        <li id="first_list"><input type="checkbox" name="checkbox" id="checkbox">첫번째 리스트</li>
+        
+    </ol>
+
+
+    <script>
+        const checkbox = document.querySelector('#checkbox');
+        checkbox.addEventListener('click', check);
+        function check(e){
+            const li = document.querySelector('#first_list')
+            const checkEvent = e.target;
+            if (checkEvent.checked == true){
+                li.style.color = '#ccc'
+            }
+            else {
+                li.style.color = 'black'
+            }
+        }
+    </script>
+
+</body>
+</html>

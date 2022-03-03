@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let multiply = function (...num){
+            let mult = 1;
+            for(let n of num){
+                mult *=n;
+            }
+            return mult;
+        }
+
+
+        function meetAt(year, month, day){
+            if (day == undefined){
+                return `${year}년 ${month}월`;
+            }
+            else if(month == undefined){
+                return `${year}년`;
+            }
+            else {
+                return `${year}/${month}/${day}`;
+            }
+        }
+
+        const myStorage = {
+            car: {
+                inside: {
+                    gloveBox: "maps",
+                    passengerSeat: "crumbs"
+                },
+                outside: {
+                    trunk: "jack"
+                }
+            }
+        };
+
+        //console.log(myStorage, car.inside.gloveBox);
+
+        function MyProduct(name, pay){
+            this.name=name;
+            this.pay=pay;
+            this.keep = function(){
+                return `${this.name}을 보관했습니다`
+            };
+            this.getPay = function(){
+                return this.pay;
+            }
+        }
+        let myProduct1 = new MyProduct("book", 6000);
+        let myProduct2 = new MyProduct("pencil", 2000);
+        let myProduct3 = new MyProduct("hat", 8000);
+
+        function User(id, money){
+            this.id = id;
+            this.money = money;
+            this.buyList = [];
+            this.charge = function(plusMoney){
+                return this.money += plusMoney;
+            };
+            this.buy = function(product){
+                this.money -= product.getPay();
+                this.buyList.push(product.name);
+            };
+        }
+        let user1 = new User ("Harry", 10000);
+
+        function lcm(a,b){
+            let n=1; //1~n까지 증가시키면서 b와 곱함
+            while(true){
+                let lcmNum = n*b
+                if (lcmNum % a == 0){
+                    break;
+                }
+                n++
+            }
+            return lcmNum
+            
+        }
+
+        let myProfile = {
+            name: '김개발',
+            address: {
+                email: 'geabal@gmail.com',
+                home: '위워크'
+            },
+            myFavorite : {
+                food: [{
+                    name: '샐러드',
+                    price: 3500
+                    }, {
+                    name: '삼겹살',
+                    price: 15000
+                    }],
+                hobby: ['축구']
+            }
+        }
+
+        function getAnwer(myProfile){
+            return myProfile.myFavorite.food[0].name;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트확인실습</title>
+</head>
+<body>
+    <p>값을 넣어 주세요</p>
+    <form>
+        <input id="text_value" type="text" value="" onfocus="focusBg(event)" onblur="blurBg()">
+        <input type="button" value="확인" onclick="textInput()">
+    </form>
+    
+    <p id="result"></p>
+
+    <p id="hidden_Text">눌러주세요</p>
+
+    <script>
+
+        const hiddenText = document.querySelector('#hidden_Text')
+        hiddenText.addEventListener('click', showText);
+
+        function showText(e){
+            const text = e.target;
+            if (text.textContent == '숨겨진 단어'){
+                text.textContent = '눌러주세요'
+                text.style.color = 'black'
+            }
+            else{
+                text.textContent = '숨겨진 단어'
+                text.style.color = 'red'
+            }
+        }
+        
+            
+        
+        
+
+        function textInput(){
+            const textValue = document.querySelector('#text_value');
+            textValue.style.color = 'blue';
+            document.querySelector('#result').textContent = textValue.value
+            
+        }
+
+        function focusBg(event){
+            const inputBg = event.target; // 이벤트 객체로 들고와 이벤트가 실행되는 요소(태그)를 가져올 수 있다.
+            // const inputBg = document.querySelector('#text_value');
+            inputBg.style.color = 'white';
+            inputBg.style.backgroundColor = 'gray';
+        }
+        function blurBg(){
+            const inputBg2 = document.querySelector('#text_value');
+            inputBg2.style.backgroundColor = 'yellow';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>업다운 게임</h1>
+    <p>설명</p>
+    <p>
+        먼저 컴퓨터가 랜덤한 수를 정한다<br />
+        사용자는 input text 안에서 숫자를 넣는다<br />
+        input의 button을 이용해서 값을 받아온다<br />
+        document.getElementById("") 을 사용해서 값 가져오기<br />
+        이 값을 랜덤한 수와 비교해서 큰지 작은지 알려준다 <br />
+        랜덤한 수를 맞출때 까지 반복
+    </p>
+    <p>
+        body 아래 script 태그에 사용자가 적을 변수값(임의)과 랜덤값(Math.random*100)을 넣어 if문을 만들기<br />
+        *document.write();로 출력
+    </p>
+    <p>
+        프롬프트로 값을 받아서 랜덤값을 맞출 때 까지 반복하기<br />
+        *주의 : 프롬프트 설명란에 작성한 수가 큰지 작은지 알려주기
+    </p> -->
+    <p id="abc"></p>
+    <button id="up-down" onclick="updown();" type="button" 
+    class="btn btn-danger">실행하기</button><br />
+
+    <script>
+        // while문과 break;문을 사용하여 프롬프트로 값을 받고
+        let random = Math.random()*100 // 0~99;
+        random = parseInt(random) // 정수값만 저장(소수점 X)   
+        let user = prompt("1~99까지 숫자를 입력해주세요")
+
+        while(true) {       
+            if(random > user) {
+            user = prompt("random값이 더 크다")    
+            document.write("random값이 더 크다");
+
+            //<p id="">태그를 만들고 그 안에
+            //document.getElementById("abc").innerHTML=""; 이용하여 설명을 넣어줌</p>
+            }        
+            else if (random < user){
+                // 프롬프트 설명을 다르게 넣어주기위해 if와 else if 문에 넣어준다   
+                user = prompt("random값이 더 작다")              
+                document.write("random값이 더 작다");
+            }
+            if (random == user) {
+                document.getElementById("abc").innerHTML="정답!"
+                break;
+            }
+        }
+        
+
+
+
+        
+
+    </script>
+
+
+
+
+
+
+
+
+</body>
+</html>
