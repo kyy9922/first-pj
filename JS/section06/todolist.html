@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>투두리스트</h1>
+    <input type="text" id="input" placeholder="할일을 입력하세유">
+    <button type="button" id="button" onclick="addItem()">+</button>
+
+    <ul id="list">
+    </ul>
+
+
+    <script>
+
+        
+        let button = document.getElementById('button');
+        let input = document.getElementById('input');
+        let list = document.getElementById('list');
+
+        button.addEventListener('click', clickButton);
+
+
+
+        function clickButton() {
+            var temp = document.createElement('li');
+            temp.innerHTML = `<input type="checkbox">` + input.value + `<button class="delete">x</button>`;
+            list.appendChild(temp);
+            cnt++;
+        }
+
+        function deleteOrCheck(e) {
+            if (e.target.className == 'delete')
+                deleteToDo(e); 
+            else {
+                checkToDo(e); 
+            }
+        }
+
+        function deleteToDo(e) { 
+            let remove = e.target.parentNode;
+            let parentNode = remove.parentNode;
+            parentNode.removeChild(remove);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
